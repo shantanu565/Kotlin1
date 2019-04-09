@@ -1,22 +1,28 @@
 import java.util.*
 
 //Check letter in string which do not have pair.
- val str1 = "apple"
-    val str2 = "banana"
-    val str3 = "@"
+fun main()
+{
+   val reader = Scanner(System.`in`)
 
-    println(str1.add(str3.multiply(5), str2))
-}
+    print("Enter the array with space separated elements: ")
+    val list1 = reader.nextLine().split(" ")
 
-fun String.multiply(number: Int): String {
-    var str = this
-    for (i in 1 until number)
-        str += this
-    return str
-}
+    val map1 = hashMapOf<String, Int>()
 
-fun String.add(str1: String, str2: String): String {
-    return this + str1 + str2
+    for (i in list1) {
+        if (i !in map1)
+            map1[i] = 1
+        else
+            map1[i] = map1[i]!! + 1
+    }
+    for (i in map1.keys) {
+        if (map1[i]!! == 1) {
+            println("The character which is not occurred twice $i")
+            break
+        }
+    }
+    reader.close()
 
 
 
